@@ -26,7 +26,7 @@ const Navbar = () => {
                         "hidden md:block text-xl md:text-2xl font-bold text-primary",
                         font.className
                     )}>
-                        companion.ai</h1>
+                        buddy.ai</h1>
                 </Link>
             </div>
             <div className="flex items-center gap-x-3">
