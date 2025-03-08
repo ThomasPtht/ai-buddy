@@ -31,5 +31,27 @@ model Buddy {
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId String
 
+  messages Message[]
+
   @@index([categoryId])
+}
+
+enum Role {
+  user
+  system
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  roel      Role
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  buddyId String
+  userId  String
+
+  buddy Buddy @relation(fields: [buddyId], references: [id], onDelete: Cascade)
+
+  @@index([buddyId])
 }
